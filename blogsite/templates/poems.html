@@ -1,0 +1,39 @@
+{%extends "layouts/app.html" %}
+{% block title %}Poems{% endblock %}
+{% block content %}
+{% load static %}
+<!-- Poems Start -->
+<div class="container-xxl py-5">
+    <div class="container py-5">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="text-secondary text-uppercase">Our Poems</h6>
+            <h1 class="mb-5">The Rhyme in Poetry</h1>
+        </div>
+        <div class="row">
+            {% for poem in poems%}
+            <div class="col-md-6 row g-4">
+                <div class="col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <img src="{{poem.cover.url}}" style="height:100%;width:100%;object-fit: cover;" alt="">
+                </div>
+                <div class="col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="price-item">
+                        <div class="border-bottom p-4 mb-4">
+                            <h5 class="text-primary mb-1">{{poem.title}}</h5>
+                            <h1 class="display-5 mb-0"></h1>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <div>{{poem.content|safe|truncatechars:250}}</div>
+                            <a class="btn-slide mt-2" href="/poem/{{poem.id}}">
+                                <i class="fa fa-arrow-right"></i>
+                                <span>Read Now</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Poems End -->
+{% endblock%}

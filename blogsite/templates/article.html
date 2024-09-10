@@ -1,0 +1,15 @@
+{%extends "layouts/app.html" %}
+{% block title %}{{article.title}}{% endblock %}
+{% block content %}
+{% load static %}
+<!-- Poems Start -->
+<div class="container-xxl py-5">
+    <div class="container py-5">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="mb-5 text-uppercase">{{article.title}}</h1>
+        </div>
+        <div>{{article.content|safe}}</div>
+    </div>
+</div>
+<!-- Poems End -->
+{% endblock%}
