@@ -60,3 +60,7 @@ class MusicViewers(models.Model):
 class MusicLikes(models.Model):
     ip=models.CharField(max_length=20)
     article = models.ForeignKey(Music,on_delete=models.CASCADE)
+class Books(models.Model):
+    author= models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=20)
+    book = models.FileField(upload_to=settings.MEDIA_ROOT+'upload/music')
