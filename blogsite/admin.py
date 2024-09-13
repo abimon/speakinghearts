@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article,Poem,Music
+from .models import Article,Poem,Music,Books
 from tinymce.widgets import TinyMCE
 from django.db import models
 class textEditorAdmin(admin.ModelAdmin):
@@ -9,3 +9,4 @@ class textEditorAdmin(admin.ModelAdmin):
 admin.site.register(Article,textEditorAdmin)
 admin.site.register(Poem,textEditorAdmin)
 admin.site.register(Music,textEditorAdmin)
+admin.site.register(Books)

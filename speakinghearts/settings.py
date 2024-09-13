@@ -1,4 +1,5 @@
-
+import pymysql
+pymysql.install_as_MySQLdb()
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -9,7 +10,7 @@ SECRET_KEY = 'django-insecure-o0@iubz2_@f=^$lwdld#v22=z#-i3qrb_hret1-6w8y-yp5260
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['blog.apektechinc.com']
 
 
 # Application definition
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'speakinghearts.urls'
@@ -83,9 +85,9 @@ CHANNEL_LAYERS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'speaking',
-        'USER':'root',
-        'PASSWORD':'',
+        'NAME': 'apektech_speakinghearts',
+        'USER':'apektech_admin',
+        'PASSWORD':'Apek@2024',
         'HOST':'localhost'
     }
 }
@@ -131,6 +133,7 @@ MEDIA_ROOT = 'media/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+STATIC_ROOT=os.path.join(BASE_DIR, "staticfiles")
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
